@@ -114,6 +114,9 @@ if [[ "${username}" != "root" ]]; then
         || bashio::exit.nok 'Failed configuring user profile'
 fi
 
+# Set shell
+sed -i "s#bin/ash#bin/$(bashio::config shell)#" /etc/passwd
+
 # We need to set a password for the user account
 if bashio::config.has_value 'ssh.password'; then
     password=$(bashio::config 'ssh.password')

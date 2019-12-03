@@ -74,6 +74,7 @@
       "keyfile": "privkey.pem"
     },
     "share_sessions": true,
+    "shell": "zsh",
     "packages": [],
     "init_commands": []
   },
@@ -95,6 +96,7 @@
       "keyfile": "str"
     },
     "share_sessions": "bool",
+    "shell": "match(^(bash|zsh)$)?",
     "packages": ["str"],
     "init_commands": ["str"],
     "i_like_to_be_pwned": "bool?",

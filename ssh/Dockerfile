@@ -70,8 +70,6 @@ RUN \
     && curl -L -s -o /usr/bin/hassio \
         "https://github.com/home-assistant/hassio-cli/releases/download/3.1.0/hassio_${BUILD_ARCH}" \
     \
-    && sed -i -e "s#bin/ash#bin/zsh#" /etc/passwd \
-    \
     && git clone --branch "v3.0.1" --depth=1 \
         https://github.com/warmcat/libwebsockets.git /tmp/libwebsockets \
     \
