@@ -4,8 +4,8 @@
 # Executes configured customizations & persists user settings
 # ==============================================================================
 readonly -a DIRECTORIES=(addons backup config share ssl)
+readonly PROFILE_FILE=/root/.profile
 readonly SSH_USER_PATH=/data/.ssh
-readonly ZSH_ENVIRONMENT_FILE=/root/.zshenv
 readonly ZSH_HISTORY_FILE=/root/.zsh_history
 readonly ZSH_HISTORY_PERSISTANT_FILE=/data/.zsh_history
 readonly GIT_CONFIG=/data/.gitconfig
@@ -27,7 +27,7 @@ chmod 600 "$ZSH_HISTORY_PERSISTANT_FILE" \
 ln -s -f "$ZSH_HISTORY_PERSISTANT_FILE" "$ZSH_HISTORY_FILE" \
     || bashio::exit.nok 'Failed linking the persistant ZSH history file'
 
-echo "export HASSIO_TOKEN=\"${HASSIO_TOKEN}\"" > "${ZSH_ENVIRONMENT_FILE}" \
+echo "export HASSIO_TOKEN=\"${HASSIO_TOKEN}\"" > "${PROFILE_FILE}" \
     || bashio::exit.nok 'Failed to export Hassio API token'
 
 # Sets up the users .ssh folder to be persistent
